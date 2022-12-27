@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Engine Day 1</title>
+  </head>
+  <body style="background-color: #000; margin: 0">
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      #player1 {
+        position: absolute;
+        color: #fff;
+        left: 250px;
+        scale: 2;
+        top: 30px;
+      }
+
+      #player2 {
+        position: absolute;
+        color: #fff;
+        right: 250px;
+        scale: 2;
+        top: 30px;
+      }
+
+      canvas {
+        display: none;
+      }
+
+      .StartGame {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+      }
+
+      .StartGame button {
+        width: 750px;
+        height: 250px;
+        background-color: #000;
+        color: #fff;
+        font-size: 100px;
+      }
+    </style>
+
+    <div class="StartGame">
+      <button>Start Game</button>
+    </div>
+
+    <h1 id="player1">0</h1>
+    <h1 id="player2">0</h1>
+
+    <canvas></canvas>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
