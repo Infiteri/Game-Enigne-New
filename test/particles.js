@@ -1,4 +1,4 @@
-import Engine from "../core/Engine.js";
+import Engine, { c } from "../core/Engine.js";
 import Mouse from "../core/Mouse.js";
 import { SpawnParticle } from "../core/objects/Particle.js";
 
@@ -9,7 +9,7 @@ const particles = [];
 Mouse.Update();
 
 addEventListener("click", () => {
-  const count = 20;
+  const count = 500;
   const power = 8;
   const angleIncrement = (Math.PI * 2) / count;
 
@@ -24,8 +24,6 @@ addEventListener("click", () => {
         x: Mouse.x,
         y: Mouse.y,
       },
-
-      color: "red",
 
       alphaUpdate: 0.01,
     });

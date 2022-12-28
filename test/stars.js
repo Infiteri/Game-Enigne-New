@@ -1,7 +1,7 @@
-import Engine, { c } from "./core/Engine.js";
-import Circle from "./core/objects/Circle.js";
-import Particle from "./core/objects/Particle.js";
-import { RandomNumFromRange } from "./core/utils/utils.js";
+import Engine, { c } from "../core/Engine.js";
+import Circle from "../core/objects/Circle.js";
+import Particle from "../core/objects/Particle.js";
+import { RandomNumFromRange } from "../core/utils/utils.js";
 
 const engine = new Engine();
 
@@ -49,6 +49,8 @@ for (let i = 0; i < 150; i++) {
       position: { x, y },
       radius,
       color: "white",
+      glowColor: "white",
+      glowBlur: 5,
     })
   );
 }
@@ -145,6 +147,7 @@ engine.AddLoopCode(() => {
         y: 5,
       },
 
+      friction: 0.5,
       glowColor: "#E3EAEF",
       glowBlur: 50,
     });
