@@ -78,6 +78,7 @@ fileInput.onchange = () => {
       });
 
       engine.RenderGameObject(sprite);
+      document.querySelector(".code").innerHTML = code;
     };
 
     fr.readAsDataURL(files[0]);
@@ -166,6 +167,8 @@ function UpdateMainCode() {
     
     engine.RenderGameObject(player);
 `;
+
+  document.querySelector(".code").innerHTML = code;
 }
 
 exportBtn.onclick = () => {

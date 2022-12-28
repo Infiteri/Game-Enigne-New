@@ -37,3 +37,8 @@ canvas {
   user-select: none;
   cursor: pointer;
 }
+
+.code {
+  position: absolute;
+  bottom: 0;
+}

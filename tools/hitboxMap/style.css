@@ -1,0 +1,18 @@
+* {
+  font-family: sans-serif;
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+#file {
+  display: none;
+}
+
+#load,
+#get,
+#create {
+  cursor: pointer;
+  user-select: none;
+}
