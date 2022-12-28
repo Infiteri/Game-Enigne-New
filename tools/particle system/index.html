@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engine tool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas></canvas>
+    <button id="spawn">Spawn Particle</button>
+    <p>Click on the canvas to spawn on the mouse x and y</p>
+
+    <div id="app">
+      <h3>Count <input type="number" id="count" value="100" /></h3>
+      <h3>Alpha <input type="number" id="alpha" value="1" min="0" /></h3>
+      <h3>AlphaUpdate <input type="number" id="alphaUpdate" value="0.02" /></h3>
+      <h3>Radius <input type="number" id="radius" min="1" value="20" /></h3>
+      <h3>
+        Color
+        <input type="text" id="color" placeholder="Random Colors by default" />
+      </h3>
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

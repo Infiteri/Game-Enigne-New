@@ -1,27 +1,44 @@
 import Engine from "./core/Engine.js";
-import GameObject from "./core/objects/GameObject.js";
+import Mouse from "./core/Mouse.js";
+import { SpawnParticle } from "./core/objects/Particle.js";
+import { SpawnPhysicsParticle } from "./core/objects/PhysicsParticle.js";
 
-const engine = new Engine(1024, 576);
+const engine = new Engine();
 
-const bg = new GameObject({
-  position: { x: 0, y: 0 },
-  src: "assets/background.png",
+const particles = [];
+Mouse.Update();
+
+addEventListener("click", () => {
+  const count = 200;
+  const power = 5;
+  const angleIncrement = (Math.PI * 2) / count;
+
+  for (let i = 0; i < count; i++) {
+    SpawnPhysicsParticle({
+      arrayOfParticles: particles,
+      velocity: {
+        x: Math.cos(angleIncrement * i) * Math.random() * power,
+        y: Math.sin(angleIncrement * i) * Math.random() * power,
+      },
+      position: {
+        x: Mouse.x,
+        y: Mouse.y,
+      },
+
+      alphaUpdate: 0.01,
+      extraSpeed: 5,
+    });
+  }
 });
 
-const player = new GameObject({
-  position: { x: 0, y: 0 },
-  scale: 2.75,
-  frames: 8,
-  frameHold: 10,
-  offset: { x: 208, y: 198 },
-  width: 105,
-  height: 141,
-  src: "", //PUT THE SOURCE IN HERE
+engine.AddLoopCode(() => {
+  particles.forEach((p, i) => {
+    p.Render();
+    p.Update();
+
+    if (p.alpha <= 0) particles.splice(i, 1);
+  });
 });
-engine.RenderGameObject(player);
 
-engine.RenderGameObject(bg);
-
-engine.RenderGameObject(player);
-
+engine.color = "black";
 engine.Init();

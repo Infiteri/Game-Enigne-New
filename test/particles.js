@@ -9,7 +9,7 @@ const particles = [];
 Mouse.Update();
 
 addEventListener("click", () => {
-  const count = 500;
+  const count = 250;
   const power = 8;
   const angleIncrement = (Math.PI * 2) / count;
 
