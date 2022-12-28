@@ -7,6 +7,16 @@ export default class Mouse {
     y: this.y,
   };
 
+  static MoveUpdate() {
+    addEventListener("mousemove", ({ clientX, clientY }) => {
+      this.x = clientX;
+      this.y = clientY;
+
+      this.mouse.x = this.x;
+      this.mouse.y = this.y;
+    });
+  }
+
   static Update() {
     addEventListener("click", ({ clientX, clientY }) => {
       this.x = clientX;

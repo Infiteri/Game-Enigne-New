@@ -13,6 +13,13 @@ export default class Engine {
     this.gameObjects = [];
     this.extraLoopCode = () => {};
 
+    this.keys = {
+      w: false,
+      a: false,
+      s: false,
+      d: false,
+    };
+
     this.color = "#fff";
   }
 
@@ -28,13 +35,14 @@ export default class Engine {
     c.fillStyle = this.color;
     c.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.gameObjects.forEach(obj => {
+    for (let i = 0; i < this.gameObjects.length; i++) {
+      const obj = this.gameObjects[i];
       if (obj.type === "GameObject") {
         if (obj.isLoaded) obj.Render();
       } else {
         obj.Render();
       }
-    });
+    }
 
     this.extraLoopCode();
 
@@ -59,8 +67,14 @@ export default class Engine {
         case "KeyD":
           this.keys.d = true;
           break;
-        // default:
-        //   break;
+
+        case "KeyW":
+          this.keys.w = true;
+          break;
+
+        case "KeyS":
+          this.keys.s = true;
+          break;
       }
     });
 
@@ -73,8 +87,14 @@ export default class Engine {
         case "KeyD":
           this.keys.d = false;
           break;
-        // default:
-        //   break;
+
+        case "KeyW":
+          this.keys.w = false;
+          break;
+
+        case "KeyS":
+          this.keys.s = false;
+          break;
       }
     });
   }
