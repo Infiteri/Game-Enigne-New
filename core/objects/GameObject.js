@@ -11,7 +11,7 @@ export default class GameObject {
     frameHold = 3,
     frames = 1,
     sprites = {},
-    currentYFrame = 0,
+    id = "GO1",
   }) {
     //!: Yes
     this.position = position;
@@ -23,7 +23,7 @@ export default class GameObject {
     this.frames = frames;
     this.elapsedFrames = 0;
     this.sprites = sprites;
-    this.currentYFrame = currentYFrame;
+    this.currentFrame = 0;
 
     this.velocity = {
       x: 0,
@@ -35,6 +35,7 @@ export default class GameObject {
     this.friction = 0.2;
     this.jumpForce = -12;
     this.speed = 7;
+    this.onGround = false;
 
     this.keys = {
       a: false,
@@ -42,15 +43,16 @@ export default class GameObject {
       w: false,
     };
 
-    this.currentFrame = 0;
-
-    this.onGround = false;
+    this.isLoaded = false;
+    this.type = "GameObject";
+    this.id = id;
 
     //*: Image setup
     this.image = new Image();
     this.image.src = src;
 
     this.image.onload = () => {
+      this.isLoaded = true;
       this.imageWidth = this.image.width;
       this.imageHeight = this.image.height;
     };
@@ -144,7 +146,7 @@ export default class GameObject {
     c.drawImage(
       this.image,
       this.currentFrame * (this.imageWidth / this.frames),
-      this.currentYFrame * (this.imageHeight / this.frames),
+      0,
       this.imageWidth / this.frames,
       this.imageHeight,
       this.position.x - this.offset.x,

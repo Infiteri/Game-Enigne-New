@@ -6,10 +6,12 @@ export default class Square {
     width = 50,
     height = 100,
     velocity = { x: 0, y: 0 },
+    color = "white",
   }) {
     this.position = position;
     this.width = width;
     this.height = height;
+    this.color = color;
 
     this.velocity = velocity;
   }
@@ -20,7 +22,7 @@ export default class Square {
   }
 
   Render() {
-    c.fillStyle = "white";
+    c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
