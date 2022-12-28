@@ -1,5 +1,5 @@
-import Engine from "./core/Engine.js";
-import Square from "./core/objects/Square.js";
+import Engine from "../core/Engine.js";
+import Square from "../core/objects/Square.js";
 
 const engine = new Engine();
 

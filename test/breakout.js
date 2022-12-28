@@ -1,6 +1,6 @@
-import Engine from "./core/Engine.js";
-import Circle from "./core/objects/Circle.js";
-import Square from "./core/objects/Square.js";
+import Engine from "../core/Engine.js";
+import Circle from "../core/objects/Circle.js";
+import Square from "../core/objects/Square.js";
 
 const engine = new Engine(1024, 576);
 
